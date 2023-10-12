@@ -1,6 +1,9 @@
 package edu.hw1;
 
 public class Task7 {
+
+    static final String ERROR = "negative number";
+
     public String conv(int m) {
         int n = m;
         String s = "";
@@ -12,6 +15,12 @@ public class Task7 {
     }
 
     public int rotateLeft(int n, int shift) {
+        if (n < 0 || shift < 0) {
+            throw new IllegalArgumentException(ERROR);
+        }
+        if (n == 0) {
+            return 0;
+        }
         String s = conv(n);
         int l = s.length();
         int sh = shift % l;
@@ -34,6 +43,12 @@ public class Task7 {
     }
 
     public int rotateRight(int n, int shift) {
+        if (n < 0) {
+            throw new IllegalArgumentException(ERROR);
+        }
+        if (n == 0) {
+            return 0;
+        }
         String s = conv(n);
         int l = s.length();
         int sh = shift % l;
