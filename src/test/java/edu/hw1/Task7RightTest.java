@@ -1,11 +1,10 @@
 package edu.hw1;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class Task7TestR {
+class Task7RightTest {
 
     @Test
     void rotateRight() {
@@ -44,14 +43,25 @@ class Task7TestR {
     }
 
     @Test
+    @DisplayName("Отрицательное число")
     void rotateRight4() {
         Task7 task7 = new Task7();
         //given
         int n = -5;
         int shift = 5;
         //when
-        Assertions.assertThatThrownBy(() -> {
-            task7.rotateRight(n, shift);
-        }).isInstanceOf(IllegalArgumentException.class);
+        Assertions.assertThatThrownBy(() -> task7.rotateRight(n, shift)).isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    @DisplayName("Отрицательное число")
+    void rotateRight5() {
+        Task7 task7 = new Task7();
+        //given
+        int n = 10;
+        int shift = -5;
+        //when
+        Assertions.assertThatThrownBy(() -> task7.rotateRight(n, shift)).isInstanceOf(IllegalArgumentException.class);
+    }
+
 }

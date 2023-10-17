@@ -2,17 +2,17 @@ package edu.hw1;
 
 public class Task4 {
 
-    public String fixString(String s) {
-        int n = s.length();
-        String t = "";
-        for (int i = 0; i < n; i = i + 2) {
-            if (i <= n - 2) {
-                t += s.charAt(i + 1);
-                t += s.charAt(i);
+    public String fixString(String str) {
+        int len = str.length();
+        StringBuilder str1 = new StringBuilder();
+        for (int i = 0; i < len; i = i + 2) {
+            if (i <= len - 2) {
+                str1.append(str.charAt(i + 1));
+                str1.append(str.charAt(i));
             } else {
-                t += s.charAt(i);
+                str1.append(str.charAt(i));
             }
         }
-        return t;
+        return str1.toString();
     }
 }

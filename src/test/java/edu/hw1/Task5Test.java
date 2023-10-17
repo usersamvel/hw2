@@ -1,6 +1,7 @@
 package edu.hw1;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class Task5Test {
@@ -50,14 +51,14 @@ class Task5Test {
     }
 
     @Test
+    @DisplayName("Отрицательное число")
     void isPalindromeDescendant5() {
         Task5 task5 = new Task5();
         //given
         int n = -6;
         //when
         //then
-        Assertions.assertThatThrownBy(() -> {
-            task5.isPalindromeDescendant(n);
-        }).isInstanceOf(IllegalArgumentException.class);
+        Assertions.assertThatThrownBy(() -> task5.isPalindromeDescendant(n))
+            .isInstanceOf(IllegalArgumentException.class);
     }
 }

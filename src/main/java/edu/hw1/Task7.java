@@ -6,12 +6,12 @@ public class Task7 {
 
     public String conv(int m) {
         int n = m;
-        String s = "";
+        StringBuilder s = new StringBuilder();
         while (n > 0) {
-            s = (n % 2) + s;
+            s.insert(0, (n % 2));
             n = n / 2;
         }
-        return s;
+        return s.toString();
     }
 
     public int rotateLeft(int n, int shift) {
@@ -24,15 +24,15 @@ public class Task7 {
         String s = conv(n);
         int l = s.length();
         int sh = shift % l;
-        String t = "";
+        StringBuilder t = new StringBuilder();
         for (int i = 0; i < sh; ++i) {
-            t = t + s.charAt(i);
+            t.append(s.charAt(i));
         }
-        String r = "";
+        StringBuilder r = new StringBuilder();
         for (int i = sh; i < l; ++i) {
-            r = r + s.charAt(i);
+            r.append(s.charAt(i));
         }
-        s = r + t;
+        s = r.toString() + t;
         int ans = 0;
         for (int i = l - 1; i >= 0; --i) {
             if (s.charAt(i) == '1') {
@@ -43,7 +43,7 @@ public class Task7 {
     }
 
     public int rotateRight(int n, int shift) {
-        if (n < 0) {
+        if (n < 0 || shift < 0) {
             throw new IllegalArgumentException(ERROR);
         }
         if (n == 0) {
@@ -52,15 +52,15 @@ public class Task7 {
         String s = conv(n);
         int l = s.length();
         int sh = shift % l;
-        String t = "";
+        StringBuilder t = new StringBuilder();
         for (int i = l - 1; i >= l - sh; --i) {
-            t = s.charAt(i) + t;
+            t.insert(0, s.charAt(i));
         }
-        String r = "";
+        StringBuilder r = new StringBuilder();
         for (int i = l - sh; i >= 0; --i) {
-            r = s.charAt(i) + r;
+            r.insert(0, s.charAt(i));
         }
-        s = t + r;
+        s = t + r.toString();
         int ans = 0;
         for (int i = l - 1; i >= 0; --i) {
             if (s.charAt(i) == '1') {
