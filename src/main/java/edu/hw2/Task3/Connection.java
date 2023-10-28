@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 
 public interface Connection extends AutoCloseable {
 
-    String MESSAGE = "Closed";
+    String MESSAGE = "Close";
     Logger LOGGER = Logger.getGlobal();
 
     static void execute(String command) {

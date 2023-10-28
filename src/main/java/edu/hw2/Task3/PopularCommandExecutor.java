@@ -4,7 +4,7 @@ public final class PopularCommandExecutor {
     private final ConnectionManager manager = new ConnectionManager.DefaultConnectionManager();
 
     public void updatePackages() {
-        tryExecute("apt update && apt upgrade -y");
+        tryExecute("apt update & apt upgrade -y");
     }
 
     void tryExecute(String command) {
